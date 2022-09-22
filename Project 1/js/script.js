@@ -1,3 +1,8 @@
+/* Project requirements
+    * - Change the background Color by genarateing random color by clicking button
+*/
+
+
 window.onload=()=>{
     main()
 }
@@ -19,7 +24,7 @@ function main(){
         let HexColor=generateHEXcolor().toUpperCase()
 
             root.style.backgroundColor=HexColor
-            output.value=HexColor.substring(1)
+            output.value=HexColor
             
             
 
@@ -30,14 +35,9 @@ function main(){
 
 
     copy.addEventListener('click',function(){
-        const data=navigator.clipboard.writeText(`#${output.value}`)
+        
+        messageGenarator(`${output.value} Copied`)
 
-        if(data){
-            console.log(output.value)
-            messageGenarator(`#${output.value} Copied`)
-         }else{
-            messageGenarator(`Invalid Color Code `)
-         }
         
          })
          
@@ -73,10 +73,10 @@ function main(){
         
         function messageGenarator(msg){
               
-            copy.addEventListener('click',function(){
+            
                 toast=document.createElement('div')
-            toast.setAttribute('id','msg')
-            toast.className='toast show success toast-slide-in'
+           
+            toast.className='msg toast show success toast-slide-in'
             toast.innerText=msg
             document.body.appendChild(toast)
         
@@ -84,13 +84,11 @@ function main(){
             toast.addEventListener('click',function(){
                 toast.classList.add('toast-slide-out')
             })
-            toast.addEventListener('click',function(){
-                toast.classList.add('toast-slide-out')
-            })
+            
         
         
         
-            })
+            
         
         
         
