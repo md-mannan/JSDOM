@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body{
+    position: relative;
+}
+
+
+
+.container{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.wrap{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.toast {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    text-align: center;
+    width: 150px;
+    padding: 3px 0px;
+    cursor: pointer;
+}
+.success{
+    background-color: yellowgreen;
+}
+.toast-slide-in{
+    animation: toast-slide-in .5s ease-in;
+}
+.toast-slide-out{
+    animation: toast-slide-out .5s ease-in;
+}
+@keyframes toast-slide-in {
+    from{
+        transform: translateX(250px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    
+}
+@keyframes toast-slide-out {
+    from{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    to{
+        transform: translateX(250px);
+        opacity: 0;
+    }
+}
+
+.field{
+    width: 260px;
+}
+input[type=text] {
+    padding: 0 5px;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.input-group-text {
+    font-size: 26px;
+    padding: 0px 6px;
+}

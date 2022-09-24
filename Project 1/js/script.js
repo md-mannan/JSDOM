@@ -27,19 +27,27 @@ function main(){
             output.value=HexColor
             
             
+            copy.addEventListener('click',function(){
+        
+                navigator.clipboard.writeText(output.value)
 
+                if(toast!==null){
+                    toast.remove()
+                    toast=null
+                }
+
+                messageGenarator(`${output.value} Copied`)
+
+
+                
+                 })
         
     })
 
 
 
 
-    copy.addEventListener('click',function(){
-        
-        messageGenarator(`${output.value} Copied`)
-
-        
-         })
+  
          
    
 
@@ -75,26 +83,21 @@ function main(){
               
             
                 toast=document.createElement('div')
-           
-            toast.className='msg toast show success toast-slide-in'
-            toast.innerText=msg
+                toast.innerText=msg
+                toast.className='msg toast show success toast-slide-in'
+
+                toast.addEventListener('click',function(){
+                    toast.classList.remove('toast-slide-in')
+                    toast.classList.add('toast-slide-out')
+                    toast.addEventListener('animationend',function(){
+                        toast.remove()
+                        toast=null
+                    })
+                })
+            
             document.body.appendChild(toast)
-        
-        
-            toast.addEventListener('click',function(){
-                toast.classList.add('toast-slide-out')
-            })
-            
-        
-        
-        
-            
-        
-        
-        
-        
-           
-        
+   
+                    
         }
 
 
